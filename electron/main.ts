@@ -19,11 +19,15 @@ let win: BrowserWindow | null
 const VITE_DEV_SERVER_URL = process.env['VITE_DEV_SERVER_URL']
 
 function createWindow() {
+  // 窗口默认配置项
   win = new BrowserWindow({
     icon: path.join(process.env.VITE_PUBLIC, 'electron-vite.svg'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
     },
+    autoHideMenuBar: true, // 隐藏默认的菜单栏
+    width: 1600,
+    height: 900,  // 默认长宽比为 16:9
   })
 
   // Test active push message to Renderer-process.
